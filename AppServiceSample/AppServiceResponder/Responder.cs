@@ -23,11 +23,11 @@ namespace AppServiceResponder
             switch (random)
             {
                 case 1:
-                    return "yes, you're right";
+                    return "yes, you're right, the answer is 42.";
                 case 2:
-                    return "nope, you're wrong";
+                    return "sorry, you're wrong, the answer is 42.";
                 case 3:
-                    return "maybe you're right, maybe not";
+                    return "maybe you're right, maybe not - but the answer is 42.";
             }
 
             return "sorry, I did not understand the question.";

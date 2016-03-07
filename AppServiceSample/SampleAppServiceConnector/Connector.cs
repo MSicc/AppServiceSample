@@ -24,7 +24,7 @@ namespace SampleAppServiceConnector
         {
             var result = "";
 
-            SampleAppServiceConnection.AppServiceName = "";
+            SampleAppServiceConnection.AppServiceName = "com.msiccdev.sampleappservice";
             SampleAppServiceConnection.PackageFamilyName = "acc75b1a-8b90-4f18-a2c4-08b0d700f1c6_62er76fr5b6k0";
             AppServiceConnectionStatus status = await SampleAppServiceConnection.OpenAsync();
 

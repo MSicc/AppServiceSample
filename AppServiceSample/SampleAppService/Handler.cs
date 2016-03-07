@@ -16,7 +16,7 @@ namespace SampleAppService
         private AppServiceConnection _appServiceConnection;
 
 
-        public void Run(IBackgroundTaskInstance taskInstance)
+       public void Run(IBackgroundTaskInstance taskInstance)
         {
             //get the task instance deferral
             this._backgroundTaskDeferral = taskInstance.GetDeferral();
