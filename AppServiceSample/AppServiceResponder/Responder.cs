@@ -16,21 +16,32 @@ namespace AppServiceResponder
         public static Responder Instance => _instance ?? (_instance = new Responder());
 
 
-        public string GetResponse()
+        public string GetResponse(string question)
         {
             var random = GetRandomNumber();
 
-            switch (random)
+            if (!string.IsNullOrEmpty(question))
             {
-                case 1:
-                    return "yes, you're right, the answer is 42.";
-                case 2:
-                    return "sorry, you're wrong, the answer is 42.";
-                case 3:
-                    return "maybe you're right, maybe not - but the answer is 42.";
+                if (question.Contains("?"))
+                {
+                    switch (random)
+                    {
+                        case 1:
+                            return "yes, you're right, the answer is 42.";
+                        case 2:
+                            return "sorry, you're wrong, the answer is 42.";
+                        case 3:
+                            return "maybe you're right, maybe not - but the answer is 42.";
+                    }
+                }
+                else
+                {
+                    return "sorry, but I can answer only questions ending with \"?\"'";
+                }
             }
 
-            return "sorry, I did not understand the question.";
+            return "sorry, I do not understand the question";
+            
 
         }
 

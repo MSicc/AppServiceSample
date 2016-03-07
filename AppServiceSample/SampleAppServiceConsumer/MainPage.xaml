@@ -8,6 +8,18 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBox x:Name="QuestionTextBox" Header="enter a question:" Grid.Row="0" Margin="12" AcceptsReturn="True" HorizontalAlignment="Stretch" Height="80"></TextBox>
 
+        <Button x:Name="GetAnswerButton" Grid.Row="1" HorizontalAlignment="Stretch" Margin="12" Content="answer my question!" Click="GetAnswerButton_OnClick"></Button>
+
+        <TextBox x:Name="AnswerTextBlock" Grid.Row="2" HorizontalAlignment="Stretch" Margin="12" Height="80" TextWrapping="Wrap"></TextBox>
+        
     </Grid>
 </Page>

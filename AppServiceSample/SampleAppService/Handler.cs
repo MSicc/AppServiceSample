@@ -53,15 +53,10 @@ namespace SampleAppService
 
                 if (!string.IsNullOrEmpty(response))
                 {
-                    var responderResponse = AppServiceResponder.Responder.Instance.GetResponse();
+                    var responderResponse = AppServiceResponder.Responder.Instance.GetResponse(response);
 
                     result.Add("Status", "OK");
                     result.Add("response", responderResponse);
-                }
-                else
-                {
-                    result.Add("Status", "Failed");
-                    result.Add("response", "no question found");
                 }
 
                 await args.Request.SendResponseAsync(result);

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -25,6 +26,12 @@ namespace SampleAppServiceConsumer
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private async void GetAnswerButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            //demonstrating it takes really just one line of code to use the AppService
+            AnswerTextBlock.Text = await SampleAppServiceConnector.Connector.Instance.GetResponse(QuestionTextBox.Text);
         }
     }
 }

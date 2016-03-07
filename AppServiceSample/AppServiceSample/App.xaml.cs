@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,6 +31,8 @@ namespace AppServiceSample
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            Debug.WriteLine(Package.Current.Id.FamilyName);
         }
 
         /// <summary>

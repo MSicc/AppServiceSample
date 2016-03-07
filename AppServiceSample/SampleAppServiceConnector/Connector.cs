@@ -18,40 +18,51 @@ namespace SampleAppServiceConnector
         public AppServiceConnection SampleAppServiceConnection;
 
 
-
-
         public async Task<string> GetResponse(string question)
         {
             var result = "";
 
-            SampleAppServiceConnection.AppServiceName = "com.msiccdev.sampleappservice";
-            SampleAppServiceConnection.PackageFamilyName = "acc75b1a-8b90-4f18-a2c4-08b0d700f1c6_62er76fr5b6k0";
-            AppServiceConnectionStatus status = await SampleAppServiceConnection.OpenAsync();
-
-            if (status != AppServiceConnectionStatus.Success)
+            using (SampleAppServiceConnection = new AppServiceConnection())
             {
-                return GetStatusDetail(status);
-            }
-            else
-            {
-                var input = new ValueSet() {{"question", question}};
+                //declaring the service and the package family name
+                SampleAppServiceConnection.AppServiceName = "com.msiccdev.sampleappservice";
 
-                AppServiceResponse response = await SampleAppServiceConnection.SendMessageAsync(input);
+                //this one can be found in the Package.appxmanifest file
+                SampleAppServiceConnection.PackageFamilyName = "acc75b1a-8b90-4f18-a2c4-08b0d700f1c6_62er76fr5b6k0";
 
-                switch (response.Status)
+                //trying to connect to he AppService
+                AppServiceConnectionStatus status = await SampleAppServiceConnection.OpenAsync();
+
+                //no success with the AppServiceConnection
+                if (status != AppServiceConnectionStatus.Success)
                 {
-                    case AppServiceResponseStatus.Success:
-                        result = (string) response.Message["response"];
-                        break;
-                    case AppServiceResponseStatus.Failure:
-                        result = "app service called failed, most likely due to wrong parameters sent to it";
-                        break;
-                    case AppServiceResponseStatus.ResourceLimitsExceeded:
-                        result = "app service exceeded the resources allocated to it and had to be terminated";
-                        break;
-                    case AppServiceResponseStatus.Unknown:
-                        result = "unknown error while sending the request";
-                        break;
+                    return GetStatusDetail(status);
+                }
+                //if successful
+                else
+                {
+                    //sending the input parameters
+                    var input = new ValueSet() {{"question", question}};
+
+                    AppServiceResponse response = await SampleAppServiceConnection.SendMessageAsync(input);
+
+
+                    //handling the response
+                    switch (response.Status)
+                    {
+                        case AppServiceResponseStatus.Success:
+                            result = (string) response.Message["response"];
+                            break;
+                        case AppServiceResponseStatus.Failure:
+                            result = "app service called failed, most likely due to wrong parameters sent to it";
+                            break;
+                        case AppServiceResponseStatus.ResourceLimitsExceeded:
+                            result = "app service exceeded the resources allocated to it and had to be terminated";
+                            break;
+                        case AppServiceResponseStatus.Unknown:
+                            result = "unknown error while sending the request";
+                            break;
+                    }
                 }
             }
 
