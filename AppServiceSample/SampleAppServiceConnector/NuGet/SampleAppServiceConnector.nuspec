@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SampleAppServiceConnector</id>
+    <version>1.0.0.0</version>
+    <title>SampleAppServiceConnector</title>
+    <description>Demo Nuget Package</description>
+    <authors>MSiccDev</authors>
+    <owners>MSiccDev</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright MSiccDev ©  2016</copyright>
+    <dependencies>
+      <group targetFramework="uap10.0">
+        <dependency id="System.Diagnostics.Debug" version="4.0.10" />
+        <dependency id="System.Runtime" version="4.0.20" />
+        <dependency id="System.Runtime.WindowsRuntime" version="4.0.10" />
+        <dependency id="System.Threading.Tasks" version="4.0.10" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\bin\Release\SampleAppServiceConnector.dll" target="ref\uap10.0" />
+    <file src="..\bin\Release\SampleAppServiceConnector.pri" target="ref\uap10.0" />
+    <file src="..\bin\ARM\Release\SampleAppServiceConnector.dll" target="runtimes\win10-arm\lib\uap10.0" />
+    <file src="..\bin\ARM\Release\SampleAppServiceConnector.pdb" target="runtimes\win10-arm\lib\uap10.0" />
+    <file src="..\bin\x64\Release\SampleAppServiceConnector.dll" target="runtimes\win10-x64\lib\uap10.0" />
+    <file src="..\bin\x64\Release\SampleAppServiceConnector.pdb" target="runtimes\win10-x64\lib\uap10.0" />
+    <file src="..\bin\x86\Release\SampleAppServiceConnector.dll" target="runtimes\win10-x86\lib\uap10.0" />
+    <file src="..\bin\x86\Release\SampleAppServiceConnector.pdb" target="runtimes\win10-x86\lib\uap10.0" />
+  </files>
+</package>

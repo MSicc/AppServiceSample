@@ -126,12 +126,6 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SampleAppServiceConnector\SampleAppServiceConnector.csproj">
-      <Project>{dc7f4552-b1d4-4191-8cce-29b61ad868c6}</Project>
-      <Name>SampleAppServiceConnector</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

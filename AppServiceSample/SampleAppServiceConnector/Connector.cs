@@ -43,7 +43,6 @@ namespace SampleAppServiceConnector
                 {
                     //sending the input parameters
                     var input = new ValueSet() {{"question", question}};
-
                     AppServiceResponse response = await SampleAppServiceConnection.SendMessageAsync(input);
 
 
